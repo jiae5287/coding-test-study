@@ -3,6 +3,7 @@ package programmers;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import programmers.withoutExplanation.Solution;
 
 public class SolutionTest {
 

@@ -1,6 +1,7 @@
 package programmers;
 
 import org.junit.Test;
+import programmers.withoutExplanation.Profile;
 
 public class ProfileTest {
   @Test

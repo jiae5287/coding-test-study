@@ -1,6 +1,7 @@
 package programmers;
 
 import org.junit.Test;
+import programmers.withoutExplanation.StrangeString;
 
 public class StrangeStringTest {
 
