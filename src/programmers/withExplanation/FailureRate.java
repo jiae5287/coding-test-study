@@ -1,7 +1,7 @@
 package programmers.withExplanation;
 
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FailureRate {
 
@@ -25,46 +25,68 @@ public class FailureRate {
    *            스테이지에 도달한 유저가 없는 경우 해당 스테이지의 실패율은 0 으로 정의한다.
    *
    *            - 도출 과정
+   *            0. stage 와 실패율이 항상 같이 붙어다녀야 하므로 Map 을 사용.
+   *            1. 각 stage 별 실패율을 구함.
+   *            2. Map 의 Key 는 stage, value 는 실패율로 구성함.
+   *            3. 실패율이 가장 높은 스테이지부터 answer[]에 넣어서 반환.
+   *
+   *            - ** 풀지 못 한 부분 **
+   *            실패율이 가장 높은 스테이지부터 answer[]에 넣어서 반환.
+   *
+   *            - ** 풀지 못 한 이유는? **
+   *            (0) Map 의 value 을 기준으로 내림차순 해야 하는데, 어떤 방법을 사용해야 할지 모르겠어서.
+   *
+   *            (1) MaxValue 와 MaxKey 변수 2개를 사용해서 정렬해주면 된다.
+   *                MaxValue 를 찾으면 MaxKey 의 값도 저장해뒀다가 answer[]에 넣어준다.
+   *
+   *            (2) Map 은 for 문을 어떻게 돌 수 있는지 고민.
+   *                KeySet 를 이용해 foreach 하면 된다.
+   *
    *
    *
    */
 
-  // N 단계의 스테이지가 존재함
-  public int[] solution(int N, int[] stages) {
-    // 정답을 위한 배열
+  public int[] solution(int N, int[] stages){
     int[] answer = new int[N];
-    // 실패율을 계산해 담을 list
-    Double[] failure = new Double[N + 1];
-    // 정답을 도출하기 위해 실패율을 담을 list
-    Double[] duplicatedFailure = new Double[N + 1];
+    Map<Integer, Double> map = new HashMap<>();
 
-    for (int i = 1; i < N + 1; i++) {
+    for(int i = 1; i <= N; i++) {
+      int stage = i;
+      int noClearPlayer = 0;
+      int currentStagePlayer = 0;
 
-      // 스테이지에 도달했으나 아직 클리어하지 못한 플레이어를 위한 변수
-      double looser = 0.0d;
-      // 스테이지에 도달한 플레이어를 위한 변수
-      double challenger = 0.0d;
-
-      // 사용자의 스테이지 확인
       for (int j = 0; j < stages.length; j++) {
-        // 스테이지에 도달했으나 아직 클리어하지 못한 플레이어 구하기
-        if ( stages[j] == i ) { looser++; }
-        // 스테이지에 도달한 플레이어 구하기
-        if ( stages[j] >= i ) { challenger++; }
+        int player = stages[j];
+
+        if (stage == player) {
+          noClearPlayer++;
+        }
+
+        if (stage <= player) {
+          currentStagePlayer++;
+        }
       }
-      System.out.println();
-      System.out.println(looser);
-      System.out.println(challenger);
-      System.out.println(looser / challenger);
-      System.out.println();
-      failure[i] = ( looser / challenger );
-      // 복제
-      duplicatedFailure[i] = failure[i];
+
+      double failureRage = 0;
+      if (noClearPlayer != 0 && currentStagePlayer != 0) {
+        failureRage = (double) noClearPlayer / (double) currentStagePlayer;
+      }
+
+      map.put(stage, failureRage);
     }
 
-    Arrays.sort(duplicatedFailure, Collections.reverseOrder());
-
-
-    return new int[1];
+    for (int i = 0; i < N; i++) {
+      double maxValue = -1;
+      int maxKey = 0;
+      for (Integer key : map.keySet()) {
+        if (maxValue < map.get(key)) {
+          maxValue = map.get(key);
+          maxKey = key;
+        }
+      }
+      answer[i] = maxKey;
+      map.remove(maxKey);
+    }
+    return answer;
   }
 }
