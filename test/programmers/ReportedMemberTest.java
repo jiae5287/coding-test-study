@@ -3,20 +3,20 @@ package programmers;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import programmers.withoutExplanation.Solution;
+import programmers.withExplanation.ReportedMember;
 
-public class SolutionTest {
+public class ReportedMemberTest {
 
-  private Solution solution;
+  private ReportedMember reportedMember;
 
   @Before
   public void init() {
-    this.solution = new Solution();
+    this.reportedMember = new ReportedMember();
   }
 
   @Test
   public void test1() {
-    int[] result = this.solution.solution(new String[]{"muzi", "frodo", "apeach", "neo"},
+    int[] result = this.reportedMember.solution(new String[]{"muzi", "frodo", "apeach", "neo"},
         new String[]{"muzi frodo", "apeach frodo", "frodo neo", "muzi neo", "apeach muzi"}, 2);
 
 
@@ -25,7 +25,7 @@ public class SolutionTest {
 
   @Test
   public void test2() {
-    int[] result = this.solution.solution(new String[]{"con", "ryan"},
+    int[] result = this.reportedMember.solution(new String[]{"con", "ryan"},
         new String[]{"ryan con", "ryan con", "ryan con", "ryan con"}, 3);
 
 
