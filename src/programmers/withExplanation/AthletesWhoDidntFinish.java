@@ -1,4 +1,4 @@
-package programmers.withoutExplanation;
+package programmers.withExplanation;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,7 +41,7 @@ import java.util.Map;
  */
 
 
-class Hash {
+class AthletesWhoDidntFinish {
   public String solution(String[] participant, String[] completion) {
 
     String answer = "";
