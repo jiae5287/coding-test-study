@@ -44,7 +44,7 @@ import java.util.Stack;
  *      시간복잡도 : O(n)
  *
  */
-public class Bracket {
+public class Brackets {
   boolean solution1(String s) {
 
     // 들어간 순서대로 나와야 하기 때문에 queue를 사용했다.
