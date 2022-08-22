@@ -18,7 +18,7 @@ import java.util.Stack;
  *      문자열 s의 길이 : 100,000 이하의 자연수
  *      문자열 s는 '(' 또는 ')' 로만 이루어져 있습니다.
  *
- *      - 내 문제 풀이 : solution1
+ *      - solution1 :
  *      괄호는 순서가 중요한 문제이다.
  *      들어간 순서대로 나와야 하기 때문에 queue를 사용했다.
  *      괄호로 이루어진 문자열을 character Array로 변경하고, queue에 담았다. <= charAt을 사용하는 게 더 나음.
@@ -28,7 +28,7 @@ import java.util.Stack;
  *      만약 틀린 구성이 생겼다면 false return.
  *      올바른 구성이라면 true return.
  *
- *      - 다른 사람 풀이 : solution2
+ *      - solution2 :
  *      stack으로 풀었다.
  *      '(' 이면 push , ')'면 pop을 하여 처리하는 기본적인 스택문제!
  *      '('이면 stack에 push.
@@ -38,9 +38,11 @@ import java.util.Stack;
  *      만약 아무 문제 없다면 return true.
  *
  *      - 아쉬운 점 :
- *      순서가 중요하다는 이유만으로 queue를 사용하는 것은 아쉬운 결정이었다.
- *      stack을 사용했을 때 충분히 간단하게 풀 수 있는 문제였다.
- *      짝을 지어야 할 때, 하나는 push만 하고 다른 하나는 pop만 해서 개수가 맞는지 확인할 수 있다.
+ *      순서가 중요하다는 이유만으로 아무 생각없이 queue를 사용하는 것은 아쉬운 결정이었다.
+ *      stack을 사용했을 때도 충분히 간단하게 풀 수 있는 문제였다.
+ *
+ *      시간복잡도 : O(n)
+ *
  */
 public class Bracket {
   boolean solution1(String s) {

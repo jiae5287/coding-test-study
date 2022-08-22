@@ -39,6 +39,8 @@ import java.util.Comparator;
  *     찾아보니 "0000"인 값을 그대로 반환해서 그런 것이었습니다.
  *     따라서 가장 앞자리 수가 "0"인 경우, 모두 0을 리턴하도록 if문을 추가했습니다.
  *
+ *     시간복잡도 계산 : o(n^2)?
+ *
  */
 public class BiggestNum {
   public String solution(int[] numbers) {
