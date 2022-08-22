@@ -30,6 +30,9 @@ import java.util.Arrays;
  *    Arrays.copyOfRange() 메소드 활용
  *    copyOfRange(원본 배열, 복사할 시작 인덱스, 복사할 끝 인덱스)
  *    Arrays.sort 사용
+ *    => API를 사용하지 않는 법으로도 solution2에서 풀었다.
+ *
+ *    시간복잡도 : O(N*M)
  *
  */
 public class KthNumber {
@@ -54,17 +57,17 @@ public class KthNumber {
     int[] answer = new int[commands.length];
 
     for (int i = 0; i < commands.length; i++) {
-      int startIndex = commands[i][0]; // i번째부터 ~
-      int endIndex = commands[i][1]; // j번째까지 자른 배열
-      int selectIndex = commands[i][2]; // 오름차순으로 정렬했을 때 k번째 수
-      int[] splitArray = new int[endIndex - startIndex + 1];
+      int start = commands[i][0]; // i번째부터 ~
+      int end = commands[i][1]; // j번째까지 자른 배열
+      int k = commands[i][2]; // 오름차순으로 정렬했을 때 k번째 수
+      int[] splitArray = new int[end - start + 1];
       int index = 0;
-      for (int j = startIndex - 1; j < endIndex; j++) {
+      for (int j = start - 1; j < end; j++) {
         splitArray[index] = array[j];
         index++;
       }
       Arrays.sort(splitArray);
-      answer[i] = splitArray[selectIndex-1];
+      answer[i] = splitArray[k - 1];
     }
 
     return answer;
