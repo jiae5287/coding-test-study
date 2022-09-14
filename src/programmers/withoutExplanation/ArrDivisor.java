@@ -49,6 +49,7 @@ public class ArrDivisor {
     }
 
     // 값이 있는 경우
+    // stream 생성 => 오름차순으로 정렬(중간 연산) => Integer를 int로 변경 => List를 Array로 변환(최종 연산)
     return answer.stream().sorted().mapToInt(value -> (value.intValue())).toArray();
   }
 }
