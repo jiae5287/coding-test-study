@@ -1,4 +1,4 @@
-package inflearn;
+package inflearn.String;
 
 import java.util.Scanner;
 

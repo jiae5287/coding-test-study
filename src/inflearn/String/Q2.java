@@ -1,4 +1,4 @@
-package inflearn;
+package inflearn.String;
 
 /**
  *  문제 설명 :
