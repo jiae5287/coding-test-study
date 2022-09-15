@@ -13,10 +13,6 @@ import java.util.Scanner;
  *    문자열을 배열로 바꾸고, 문자와 배열의 원소를 하나씩 비교한다.
  *
  *
- *    Character와 관련된 함수를 사용하고 싶다면 wrapper class 이용하기.
- *    char를 입력받을 땐 scanner.next().charAt(0);
- *
- *
  */
 public class Q1 {
 
@@ -38,7 +34,7 @@ public class Q1 {
 
     // 입력
     String input1 = in.next();
-    char input2 = in.next().charAt(0);
+    char input2 = in.next().charAt(0); // char를 입력받을 땐 scanner.next().charAt(0);
 
     // 출력
     System.out.println(q1.solution(input1, input2));
