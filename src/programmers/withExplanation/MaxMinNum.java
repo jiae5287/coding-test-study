@@ -19,7 +19,7 @@ import java.util.Arrays;
  *    문제 풀이 ::
  *    1. String의 split을 이용해서 array 만들기.
  *    2. 해당 array를 Integer type으로 변경 및 정렬하기. <= stream 사용.
- *    2. "mapToInt(Integer::parseInt)" <= IntStream
+ *    !! "mapToInt(Integer::parseInt)" <= IntStream !!
  *    3. 최솟값 최댓값 빼오기.
  */
 public class MaxMinNum {
